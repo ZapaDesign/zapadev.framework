@@ -1,4 +1,7 @@
 <?php
+error_reporting(-1);
+
+use vendor\core\Router;
 
 $query = rtrim($_SERVER['QUERY_STRING'], '/');
 //echo $query = rtrim($_SERVER['QUERY_STRING'], '/');
@@ -12,8 +15,8 @@ define('ROOT', dirname(__DIR__));
 define('APP', dirname(__DIR__) . '/app');
 
 spl_autoload_register(function ($class) {
-    $file = APP . "/controllers/$class.php";
-    if(is_file($file)) {
+    $file = ROOT . '/' . str_replace('\\', '/', $class) . '.php';
+    if (is_file($file)) {
         require_once $file;
     }
 });
