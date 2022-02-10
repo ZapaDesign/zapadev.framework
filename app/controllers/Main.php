@@ -2,10 +2,17 @@
 
 namespace app\controllers;
 
-class Main
+use vendor\core\base\Controller;
+
+class Main extends Controller
 {
     public function indexAction()
     {
         echo 'Main::index';
+    }
+
+    public function testAction()
+    {
+        echo 'Main::test';
     }
 }

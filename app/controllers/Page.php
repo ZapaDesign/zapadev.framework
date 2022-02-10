@@ -4,16 +4,15 @@ namespace app\controllers;
 
 use vendor\core\base\Controller;
 
-class PostsNew extends Controller
+class Page extends Controller
 {
-
-    public function testAction()
+    public function viewAction()
     {
-        echo 'PostsNew::test';
+        echo 'Page::view';
     }
 
     public function indexAction()
     {
-        echo 'PostsNew::index';
+        echo 'Page::index';
     }
 }
