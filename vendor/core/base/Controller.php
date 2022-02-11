@@ -8,9 +8,10 @@ abstract class Controller
      * @var array
      */
     public $route = [];
-
     public $view;
     public $layout;
+
+    public $vars = [];
 
     public function __construct($route)
     {
@@ -20,6 +21,11 @@ abstract class Controller
 
     public function getView() {
         $vObj = new View($this->route, $this->layout, $this->view);
-        $vObj->render();
+        $vObj->render($this->vars);
+    }
+
+    public function set($vars)
+    {
+        $this->vars = $vars;
     }
 }
