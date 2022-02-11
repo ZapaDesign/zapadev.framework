@@ -4,7 +4,15 @@ namespace vendor\core;
 
 class Router
 {
+    /**
+     * Routes
+     * @var array
+     */
     protected static $routes = [];
+    /**
+     * Current route
+     * @var array
+     */
     protected static $route = [];
 
     public static function add($regexp, $route = [])
@@ -73,6 +81,7 @@ class Router
 
                 if (method_exists($cObj, $action)) {
                     $cObj->$action();
+                    $cObj->getView();
                 } else {
                     echo "Method <b>$controller::$action</b> not found";
                 }
